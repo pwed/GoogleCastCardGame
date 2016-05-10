@@ -39,14 +39,12 @@ limitations under the License.
 
     </style>
     <title>Type Something You Want To Put On The Screen</title>
-</head>
-<body>
-<div id="wrapper">
-    <p id="message">Type Something You Want To Put On The Screen</p>
-</div>
-<script type="text/javascript" src="http://www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
-<script type="text/javascript">
-    window.onload = function () {
+  </head>
+  <body>
+	<DIV><p id="message">Type Something You Want To Put On The Screen</p></DIV>
+    <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+    <script type="text/javascript">
+      window.onload = function() {
         cast.receiver.logger.setLevelValue(0);
         window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
         console.log('Starting Receiver Manager');
