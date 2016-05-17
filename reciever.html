@@ -16,12 +16,13 @@ limitations under the License.
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="//www.w3schools.com/lib/w3.css">
     <style type="text/css">
         body {
             overflow: hidden;
         }
 
-        div {
+        div#wrapper {
             height: 720PX;
             width: 1280PX;
             text-align: center;
@@ -34,11 +35,13 @@ limitations under the License.
             font-family: Verdana, Geneva, sans-serif;
             font-size: 40px;
         }
+
+
     </style>
     <title>Type Something You Want To Put On The Screen</title>
 </head>
 <body>
-<DIV><p id="message">Type Something You Want To Put On The Screen</p></DIV>
+<div id="wrapper"><p id="message">Type Something You Want To Put On The Screen</p></div>
 <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
 <script type="text/javascript">
     window.onload = function () {
