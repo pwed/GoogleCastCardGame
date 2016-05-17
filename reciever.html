@@ -16,7 +16,7 @@ limitations under the License.
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="//www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <style type="text/css">
         body {
             overflow: hidden;
@@ -41,8 +41,10 @@ limitations under the License.
     <title>Type Something You Want To Put On The Screen</title>
 </head>
 <body>
-<div id="wrapper"><p id="message">Type Something You Want To Put On The Screen</p></div>
-<script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+<div id="wrapper">
+    <p id="message">Type Something You Want To Put On The Screen</p>
+</div>
+<script type="text/javascript" src="http://www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
 <script type="text/javascript">
     window.onload = function () {
         cast.receiver.logger.setLevelValue(0);
@@ -84,11 +86,14 @@ limitations under the License.
         window.messageBus.onMessage = function (event) {
             console.log('Message [' + event.senderId + ']: ' + event.data);
             // display the message from the sender
-            displayText(event.data + '</p> <p>from: ' + event.senderId);
+            var data = event.data.split("][");
+            var message = data[0].split('=')[1];
+            var name = data[1].split('=')[1];
+            displayText(message + '</p> <p>from: ' + name);
             // inform all senders on the CastMessageBus of the incoming message event
             // sender message listener will be invoked
             window.messageBus.send(event.senderId, event.data);
-        }
+        };
 
         // initialize the CastReceiverManager with an application status message
         window.castReceiverManager.start({statusText: "Application is starting"});
@@ -101,7 +106,10 @@ limitations under the License.
         document.getElementById("message").innerHTML = text;
         window.castReceiverManager.setApplicationState(text);
     }
-    ;
+
+    // Game Manager setup
+
+
 </script>
 </body>
 </html>

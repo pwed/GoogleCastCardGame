@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
     <title>Hello World</title>
     <style type="text/css">
@@ -58,8 +59,6 @@
 
             chrome.cast.initialize(apiConfig, onInitSuccess, onError);
         }
-        ;
-
         /**
          * initialization success callback
          */
@@ -109,8 +108,6 @@
                 session = null;
             }
         }
-        ;
-
         /**
          * utility function to log messages from the receiver
          * @param {string} namespace The namespace of the message
@@ -119,8 +116,6 @@
         function receiverMessage(namespace, message) {
             appendMessage("receiverMessage: " + namespace + ", " + message);
         }
-        ;
-
         /**
          * receiver listener during initialization
          */
@@ -166,13 +161,11 @@
             var dw = document.getElementById("debugmessage");
             dw.innerHTML += '\n' + JSON.stringify(message);
         }
-        ;
-
         /**
          * utility function to handle text typed in by user in the input field
          */
         function update() {
-            sendMessage(document.getElementById("input").value);
+            sendMessage("input=" + document.getElementById("input").value + '][' + "name=" + document.getElementById("name").value);
         }
 
         /**
@@ -192,7 +185,9 @@
     <tr>
         <td>
             <form action="JavaScript:update();" method="get">
-                <input class="border" id="input"onwebkitspeechchange="transcribe(this.value)" size="30" type="text" x-webkit-speech=""/>
+                <input class="border" id="input" onwebkitspeechchange="transcribe(this.value)" size="30" type="text" x-webkit-speech=""/>
+                <input class="border" id="name" onwebkitspeechchange="transcribe(this.value)" size="30" type="text" x-webkit-speech=""/><br />
+                <button class="w3-btn w3-blue" onclick="update()">Send</button>
             </form>
         </td>
     </tr>
