@@ -208,94 +208,101 @@
     </script>
 </head>
 <body class="w3-container">
-<div class="w3-row"><div class="w3-col m4"><p> </p></div><p class="w3-card-4 w3-col m5" id="disclaimer">This project is in no way affiliated with Cards Against Humanity. It is distributed under creative
-    commons as that is the license the cards are published under. <b>Content may be offensive, please continue at your
-        own risk</b>
-    <button onclick="acceptDisclaimer();">Accept and hide disclaimer.</button>
-</p></div>
-<div id="game" style="visibility: hidden"><div class="w3-row">
-    <div class="w3-col m5"><p></p></div>
-    <button class="m2 w3-col w3-btn" onclick="drawHand();">Draw Hand</button>
+<div class="w3-row">
+    <div class="w3-col m4"><p></p></div>
+    <p class="w3-card-4 w3-col m5" id="disclaimer">This project is in no way affiliated with Cards Against Humanity. It
+        is distributed under creative
+        commons as that is the license the cards are published under. <b>Content may be offensive, please continue at
+            your
+            own risk</b>
+        <button onclick="acceptDisclaimer();">Accept and hide disclaimer.</button>
+    </p>
 </div>
-<div id="row1" class="w3-row-padding">
-    <div class="w3-col m1"><p></p></div> <!-- this is here to center the other columns -->
-    <div class="w3-col m2">
-        <div class="w3-card-4">
-            <p id="card0">Card0</p>
-            <button class="w3-btn" onclick="pickCard(0);">Pick Card</button>
+<div id="game" style="visibility: hidden">
+    <div class="w3-row">
+        <div class="w3-col m5"><p></p></div>
+        <button class="m2 w3-col w3-btn" onclick="drawHand();">Draw Hand</button>
+    </div>
+    <div id="row1" class="w3-row-padding">
+        <div class="w3-col m1"><p></p></div> <!-- this is here to center the other columns -->
+        <div class="w3-col m2">
+            <div class="w3-card-4">
+                <p id="card0">Card0</p>
+                <button class="w3-btn" onclick="pickCard(0);">Pick Card</button>
+            </div>
+        </div>
+        <div class="w3-col m2">
+            <div class="w3-card-4">
+                <p id="card1">Card1</p>
+                <button class="w3-btn" onclick="pickCard(1);">Pick Card</button>
+            </div>
+        </div>
+        <div class="w3-col m2">
+            <div class="w3-card-4">
+                <p id="card2">Card2</p>
+                <button class="w3-btn" onclick="pickCard(2);">Pick Card</button>
+            </div>
+        </div>
+        <div class="w3-col m2">
+            <div class="w3-card-4">
+                <p id="card3">Card3</p>
+                <button class="w3-btn" onclick="pickCard(3);">Pick Card</button>
+            </div>
+        </div>
+        <div class="w3-col m2">
+            <div class="w3-card-4">
+                <p id="card4">Card4</p>
+                <button class="w3-btn" onclick="pickCard(4);">Pick Card</button>
+            </div>
         </div>
     </div>
-    <div class="w3-col m2">
-        <div class="w3-card-4">
-            <p id="card1">Card1</p>
-            <button class="w3-btn" onclick="pickCard(1);">Pick Card</button>
+    <div id="row2" class="w3-row-padding">
+        <div class="w3-col m1"><p></p></div> <!-- this is here to center the other columns -->
+        <div class="w3-col m2">
+            <div class="w3-card-4">
+                <p id="card5">Card5</p>
+                <button class="w3-btn" onclick="pickCard(5);">Pick Card</button>
+            </div>
+        </div>
+        <div class="w3-col m2">
+            <div class="w3-card-4">
+                <p id="card6">Card6</p>
+                <button class="w3-btn" onclick="pickCard(6);">Pick Card</button>
+            </div>
+        </div>
+        <div class="w3-col m2">
+            <div class="w3-card-4">
+                <p id="card7">Card7</p>
+                <button class="w3-btn" onclick="pickCard(7);">Pick Card</button>
+            </div>
+        </div>
+        <div class="w3-col m2">
+            <div class="w3-card-4">
+                <p id="card8">Card8</p>
+                <button class="w3-btn" onclick="pickCard(8);">Pick Card</button>
+            </div>
+        </div>
+        <div class="w3-col m2">
+            <div class="w3-card-4">
+                <p id="card9">Card9</p>
+                <button class="w3-btn" onclick="pickCard(9);">Pick Card</button>
+            </div>
         </div>
     </div>
-    <div class="w3-col m2">
-        <div class="w3-card-4">
-            <p id="card2">Card2</p>
-            <button class="w3-btn" onclick="pickCard(2);">Pick Card</button>
-        </div>
-    </div>
-    <div class="w3-col m2">
-        <div class="w3-card-4">
-            <p id="card3">Card3</p>
-            <button class="w3-btn" onclick="pickCard(3);">Pick Card</button>
-        </div>
-    </div>
-    <div class="w3-col m2">
-        <div class="w3-card-4">
-            <p id="card4">Card4</p>
-            <button class="w3-btn" onclick="pickCard(4);">Pick Card</button>
-        </div>
-    </div>
+    <table id="wrapper">
+        <tbody>
+        <tr>
+            <td>
+                <form action="javascript:setName();" method="get">
+                    <label>Player Name: </label>
+                    <input class="border" id="name" onwebkitspeechchange="transcribe(this.value)" size="30" type="text"
+                           x-webkit-speech=""/><br/>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
-<div id="row2" class="w3-row-padding">
-    <div class="w3-col m1"><p></p></div> <!-- this is here to center the other columns -->
-    <div class="w3-col m2">
-        <div class="w3-card-4">
-            <p id="card5">Card5</p>
-            <button class="w3-btn" onclick="pickCard(5);">Pick Card</button>
-        </div>
-    </div>
-    <div class="w3-col m2">
-        <div class="w3-card-4">
-            <p id="card6">Card6</p>
-            <button class="w3-btn" onclick="pickCard(6);">Pick Card</button>
-        </div>
-    </div>
-    <div class="w3-col m2">
-        <div class="w3-card-4">
-            <p id="card7">Card7</p>
-            <button class="w3-btn" onclick="pickCard(7);">Pick Card</button>
-        </div>
-    </div>
-    <div class="w3-col m2">
-        <div class="w3-card-4">
-            <p id="card8">Card8</p>
-            <button class="w3-btn" onclick="pickCard(8);">Pick Card</button>
-        </div>
-    </div>
-    <div class="w3-col m2">
-        <div class="w3-card-4">
-            <p id="card9">Card9</p>
-            <button class="w3-btn" onclick="pickCard(9);">Pick Card</button>
-        </div>
-    </div>
-</div>
-<table id="wrapper">
-    <tbody>
-    <tr>
-        <td>
-            <form action="javascript:setName();" method="get">
-                <label>Player Name: </label>
-                <input class="border" id="name" onwebkitspeechchange="transcribe(this.value)" size="30" type="text"
-                       x-webkit-speech=""/><br/>
-            </form>
-        </td>
-    </tr>
-    </tbody>
-</table></div>
 
 <p><!-- Debbugging output --></p>
 

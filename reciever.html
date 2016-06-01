@@ -82,6 +82,7 @@ limitations under the License.
             </div>
         </div>
     </div>
+    <p id="players-connected"></p>
 </div>
 <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
 <script type="text/javascript">
@@ -123,19 +124,40 @@ limitations under the License.
 
         // handler for the CastMessageBus message event
         window.messageBus.onMessage = function (event) {
-            console.log('Message [' + event.senderId + ']: ' + event.data);
-            // display the message from the sender
-            var data = event.data.split("][");
-            var message = data[0].split('=')[1];
-            var name = data[1].split('=')[1];
-            displayMessage(message);
             addPlayer(event.senderId);
-            displayName(name);
+            document.getElementById('players-connected').innerHTML = players;
+            //players[0] = event.playerId;
+            var data = event.data.split("][");
+            for (var i = 0; i < data.length + 1; i++) {
+                var arg = data[i].split('=');
+                switch (arg[0]) {
+                    case 'name':
+                        displayName(arg[1], event.senderId);
+                        break;
+                    case 'input':
+                        displayMessage(arg[1], event.senderId);
+                        break;
+                }
+            }
 
-            // inform all senders on the CastMessageBus of the incoming message event
-            // sender message listener will be invoked
-            window.messageBus.send(event.senderId, event.data);
         };
+
+
+
+
+
+//            console.log('Message [' + event.senderId + ']: ' + event.data);
+//            // display the message from the sender
+//            var data = event.data.split("][");
+//            var message = data[0].split('=')[1];
+//            var name = data[1].split('=')[1];
+//            displayMessage(message);
+//            displayName(name);
+//            addPlayer(event.senderId);
+//
+//            // inform all senders on the CastMessageBus of the incoming message event
+//            // sender message listener will be invoked
+//            window.messageBus.send(event.senderId, event.data);
 
         // initialize the CastReceiverManager with an application status message
         window.castReceiverManager.start({statusText: "Application is starting"});
@@ -143,27 +165,48 @@ limitations under the License.
     };
 
     // utility function to display the text message in the input field
-    function displayMessage(text) {
+    function displayMessage(text, playerID) {
         console.log(text);
-        document.getElementById("player0").innerHTML = text;
+        var id = getPlayerByID(playerID)
+        document.getElementById("player" + id).innerHTML = text;
     }
 
-    function displayName(name) {
+    function displayName(name, playerID) {
         console.log(name);
-        document.getElementById("name").innerHTML = name;
+        var id = getPlayerByID(playerID)
+        document.getElementById("name" + id).innerHTML = name;
     }
 
-    var player = new Array[4];
+    var players = new Array(4);
+    for(var i=0;i<players.length;i++){
+        players[i] = '';
+    }
+    var nextPlayerID = 0;
 
     function addPlayer(playerID) {
-        player.add(playerID);
+        if (nextPlayerID < players.length){
+            for (var i = 0; i < nextPlayerID;i++){
+                if (playerID == players[i]){
+                    return;
+                }
+            }
+            players[nextPlayerID] = playerID;
+            nextPlayerID++;
+        }
+    }
+
+    function getPlayerByID(playerID) {
+        for (var i = 0; i < players.length; i++) {
+            if (playerID == players[i]) {
+                return i;
+            }
+        }
     }
 
 
-
-//    CastReceiverManager.onSenderConnectedEvent() = function (event) {
-//        document.getElementById('player1').innerHTML = event.senderId
-//    }
+    //    CastReceiverManager.onSenderConnectedEvent() = function (event) {
+    //        document.getElementById('player1').innerHTML = event.senderId
+    //    }
 
     // Game Manager setup
 
