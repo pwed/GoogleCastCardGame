@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head> 
+<head>
     <link rel="stylesheet" href="styles/w3.css">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
     <title>Hello World</title>
@@ -165,7 +165,7 @@
          * utility function to handle text typed in by user in the input field
          */
         function update() {
-            sendMessage("input=" + document.getElementById("input").value + '][' + "name=" + document.getElementById("name").value);
+            //sendMessage("input=" + document.getElementById("input").value + '][' + "name=" + document.getElementById("name").value);
         }
 
         /**
@@ -180,7 +180,7 @@
          * Random white card getter
          */
         function getRandomWhiteCard() {
-            return whiteCards[Math.floor(Math.random()*whiteCards.length)];
+            return whiteCards[Math.floor(Math.random() * whiteCards.length)];
         }
         function showWhiteCard(id) {
             document.getElementById(id).innerHTML = getRandomWhiteCard();
@@ -191,46 +191,87 @@
                 showWhiteCard('card' + i);
             }
         }
+
+        function pickCard(cardID) {
+            var cardText = document.getElementById('card' + cardID).innerHTML;
+            sendMessage('input=' + cardText + '][' + "name=" + document.getElementById("name").value);
+        }
     </script>
 </head>
-<body>
-<p id="disclaimer">This project is in no way affiliated with Cards Against Humanity. It is distributed under creative commons as that is the license the cards are published under. <b>Content may be offensive, please continue at your own risk</b>
-<button onclick="document.getElementById('disclaimer').innerHTML = '';">Accept and hide disclaimer.</button></p>
-<div class="w3-row"><div class="w3-col m5"><p> </p></div> <button class="m2 w3-col w3-btn" onclick="drawHand();">Draw Hand</button></div>
+<body class="w3-container">
+<p id="disclaimer">This project is in no way affiliated with Cards Against Humanity. It is distributed under creative
+    commons as that is the license the cards are published under. <b>Content may be offensive, please continue at your
+        own risk</b>
+    <button onclick="document.getElementById('disclaimer').innerHTML = '';">Accept and hide disclaimer.</button>
+</p>
+<div class="w3-row">
+    <div class="w3-col m5"><p></p></div>
+    <button class="m2 w3-col w3-btn" onclick="drawHand();">Draw Hand</button>
+</div>
 <div id="row1" class="w3-row-padding">
-    <div class="w3-col m1"><p> </p></div> <!-- this is here to center the other collumns -->
-    <div class="w3-card-4 w3-col m2">
-        <p id="card0">Card0</p>
+    <div class="w3-col m1"><p></p></div> <!-- this is here to center the other columns -->
+    <div class="w3-col m2">
+        <div class="w3-card-4">
+            <p id="card0">Card0</p>
+            <button class="w3-btn" onclick="pickCard(0);">Pick Card</button>
+        </div>
     </div>
-    <div class="w3-card-4 w3-col m2">
-        <p id="card1">Card1</p>
+    <div class="w3-col m2">
+        <div class="w3-card-4">
+            <p id="card1">Card1</p>
+            <button class="w3-btn" onclick="pickCard(1);">Pick Card</button>
+        </div>
     </div>
-    <div class="w3-card-4 w3-col m2">
-        <p id="card2">Card2</p>
+    <div class="w3-col m2">
+        <div class="w3-card-4">
+            <p id="card2">Card2</p>
+            <button class="w3-btn" onclick="pickCard(2);">Pick Card</button>
+        </div>
     </div>
-    <div class="w3-card-4 w3-col m2">
-        <p id="card3">Card3</p>
+    <div class="w3-col m2">
+        <div class="w3-card-4">
+            <p id="card3">Card3</p>
+            <button class="w3-btn" onclick="pickCard(3);">Pick Card</button>
+        </div>
     </div>
-    <div class="w3-card-4 w3-col m2">
-        <p id="card4">Card4</p>
+    <div class="w3-col m2">
+        <div class="w3-card-4">
+            <p id="card4">Card4</p>
+            <button class="w3-btn" onclick="pickCard(4);">Pick Card</button>
+        </div>
     </div>
 </div>
 <div id="row2" class="w3-row-padding">
-    <div class="w3-col m1"><p> </p></div> <!-- this is here to center the other collumns -->
-    <div class="w3-card-4 w3-col m2">
-        <p id="card5">Card5</p>
+    <div class="w3-col m1"><p></p></div> <!-- this is here to center the other columns -->
+    <div class="w3-col m2">
+        <div class="w3-card-4">
+            <p id="card5">Card5</p>
+            <button class="w3-btn" onclick="pickCard(5);">Pick Card</button>
+        </div>
     </div>
-    <div class="w3-card-4 w3-col m2">
-        <p id="card6">Card6</p>
+    <div class="w3-col m2">
+        <div class="w3-card-4">
+            <p id="card6">Card6</p>
+            <button class="w3-btn" onclick="pickCard(6);">Pick Card</button>
+        </div>
     </div>
-    <div class="w3-card-4 w3-col m2">
-        <p id="card7">Card7</p>
+    <div class="w3-col m2">
+        <div class="w3-card-4">
+            <p id="card7">Card7</p>
+            <button class="w3-btn" onclick="pickCard(7);">Pick Card</button>
+        </div>
     </div>
-    <div class="w3-card-4 w3-col m2">
-        <p id="card8">Card8</p>
+    <div class="w3-col m2">
+        <div class="w3-card-4">
+            <p id="card8">Card8</p>
+            <button class="w3-btn" onclick="pickCard(8);">Pick Card</button>
+        </div>
     </div>
-    <div class="w3-card-4 w3-col m2">
-        <p id="card9">Card9</p>
+    <div class="w3-col m2">
+        <div class="w3-card-4">
+            <p id="card9">Card9</p>
+            <button class="w3-btn" onclick="pickCard(9);">Pick Card</button>
+        </div>
     </div>
 </div>
 <table id="wrapper">
@@ -238,9 +279,13 @@
     <tr>
         <td>
             <form action="JavaScript:update();" method="get">
-                <input class="border" id="input" onwebkitspeechchange="transcribe(this.value)" size="30" type="text" x-webkit-speech=""/>
-                <input class="border" id="name" onwebkitspeechchange="transcribe(this.value)" size="30" type="text" x-webkit-speech=""/><br />
-                <button class="w3-btn w3-blue" onclick="update()">Send</button>
+                <!---<label>Input to send to screen</label>
+                <input class="border" id="input" onwebkitspeechchange="transcribe(this.value)" size="30" type="text"
+                       x-webkit-speech=""/>--->
+                <label>your name</label>
+                <input class="border" id="name" onwebkitspeechchange="transcribe(this.value)" size="30" type="text"
+                       x-webkit-speech=""/><br/>
+                <!--<button class="w3-btn w3-blue" onclick="update()">Send</button>-->
             </form>
         </td>
     </tr>
@@ -253,7 +298,7 @@
 
 <p>
     <script type="text/javascript">
-        document.getElementById("input").focus();
+        //document.getElementById("input").focus();
 
         //Cards Arrays
 
