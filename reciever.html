@@ -48,7 +48,7 @@ limitations under the License.
             <p id="blackCard">blackCard</p>
         </div>
     </div>
-    <div id="row" class="w3-row">
+    <div id="row" class="w3-row-padding">
         <div class="w3-card w3-white w3-col m3">
             <p id="player1">pick a white card</p>
             <footer class="w3-container w3-blue">
@@ -142,6 +142,10 @@ limitations under the License.
     function displayName(name) {
         console.log(name);
         document.getElementById("name").innerHTML = name;
+    }
+
+    CastReceiverManager.onSenderConnectedEvent() = function (event) {
+        document.getElementById('player1').innerHTML = event.senderId
     }
 
     // Game Manager setup

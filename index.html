@@ -196,8 +196,8 @@
 <body>
 <p id="disclaimer">This project is in no way affiliated with Cards Against Humanity. It is distributed under creative commons as that is the license the cards are published under. <b>Content may be offensive, please continue at your own risk</b>
 <button onclick="document.getElementById('disclaimer').innerHTML = '';">Accept and hide disclaimer.</button></p>
-<button onclick="drawHand();">Test</button>
-<div id="row1" class="w3-row">
+<div class="w3-row"><div class="w3-col m5"><p> </p></div> <button class="m2 w3-col w3-btn" onclick="drawHand();">Draw Hand</button></div>
+<div id="row1" class="w3-row-padding">
     <div class="w3-col m1"><p> </p></div> <!-- this is here to center the other collumns -->
     <div class="w3-card-4 w3-col m2">
         <p id="card0">Card0</p>
@@ -215,7 +215,7 @@
         <p id="card4">Card4</p>
     </div>
 </div>
-<div id="row2" class="w3-row">
+<div id="row2" class="w3-row-padding">
     <div class="w3-col m1"><p> </p></div> <!-- this is here to center the other collumns -->
     <div class="w3-card-4 w3-col m2">
         <p id="card5">Card5</p>
