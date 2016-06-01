@@ -16,15 +16,17 @@ limitations under the License.
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="//www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="styles/w3.css">
     <style type="text/css">
         body {
-            overflow: hidden; 
+            overflow: hidden;
         }
 
         div#wrapper {
             height: 720PX;
             width: 1280PX;
+            padding-left: 10%;
+            padding-right: 10%;
             text-align: center;
             border: 0px solid silver;
             display: table-cell;
@@ -36,20 +38,46 @@ limitations under the License.
             font-size: 40px;
         }
 
-
     </style>
     <title>Type Something You Want To Put On The Screen</title>
-  </head>
-  <body>
-	<div id="wrapper">
-        <div class="w3-card w3-yellow">
-            <p id="message">type Something You Want To Put On The Screen</p>
-            <p id="name">name goes here</p>
+</head>
+<body>
+<div id="wrapper">
+    <div class="w3-row">
+        <div class="w3-card-2 w3-green">
+            <p id="blackCard">blackCard</p>
         </div>
     </div>
-    <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
-    <script type="text/javascript">
-      window.onload = function() {
+    <div id="row" class="w3-row">
+        <div class="w3-card w3-white w3-col m3">
+            <p id="player1">pick a white card</p>
+            <footer class="w3-container w3-blue">
+                <h5 id="name">Player 1</h5>
+            </footer>
+        </div>
+        <div class="w3-card w3-white w3-col m3">
+            <p id="player2">pick a white card</p>
+            <footer class="w3-container w3-blue">
+                <h5 id="name">Player 2</h5>
+            </footer>
+        </div>
+        <div class="w3-card w3-white w3-col m3">
+            <p id="player3">pick a white card</p>
+            <footer class="w3-container w3-blue">
+                <h5 id="name">Player 3</h5>
+            </footer>
+        </div>
+        <div class="w3-card w3-white w3-col m3">
+            <p id="player4">pick a white card</p>
+            <footer class="w3-container w3-blue">
+                <h5 id="name">Player 4</h5>
+            </footer>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
         cast.receiver.logger.setLevelValue(0);
         window.castReceiverManager = cast.receiver.CastReceiverManager.getInstance();
         console.log('Starting Receiver Manager');
@@ -92,7 +120,9 @@ limitations under the License.
             var data = event.data.split("][");
             var message = data[0].split('=')[1];
             var name = data[1].split('=')[1];
-            displayText(message + '</p> <p>from: ' + name);
+            displayMessage(message);
+            displayName(name);
+
             // inform all senders on the CastMessageBus of the incoming message event
             // sender message listener will be invoked
             window.messageBus.send(event.senderId, event.data);
@@ -104,13 +134,18 @@ limitations under the License.
     };
 
     // utility function to display the text message in the input field
-    function displayText(text) {
+    function displayMessage(text) {
         console.log(text);
         document.getElementById("message").innerHTML = text;
-        window.castReceiverManager.setApplicationState(text);
+    }
+
+    function displayName(name) {
+        console.log(name);
+        document.getElementById("name").innerHTML = name;
     }
 
     // Game Manager setup
+
 
 
 </script>
