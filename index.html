@@ -185,11 +185,17 @@
         function showWhiteCard(id) {
             document.getElementById(id).innerHTML = getRandomWhiteCard();
         }
+
+        function drawHand() {
+            for (var i = 0; i < 10; i++) {
+                showWhiteCard('card' + i);
+            }
+        }
     </script>
 </head>
 <body>
 <p id="whitecard">test</p>
-<button onclick="showWhiteCard('card0');">Test</button>
+<button onclick="drawHand();">Test</button>
 <div id="row1" class="w3-row">
     <div class="w3-col m1"><p> </p></div> <!-- this is here to center the other collumns -->
     <div class="w3-card-4 w3-col m2">
