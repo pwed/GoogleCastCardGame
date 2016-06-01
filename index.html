@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" href="styles/w3.css">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-    <title>Hello World</title>
+    <title>Bet you can think of a better name!</title>
     <style type="text/css">
         html, body, #wrapper {
             height: 100%;
@@ -208,11 +208,11 @@
     </script>
 </head>
 <body class="w3-container">
-<p id="disclaimer">This project is in no way affiliated with Cards Against Humanity. It is distributed under creative
+<div class="w3-row"><div class="w3-col m4"><p> </p></div><p class="w3-card-4 w3-col m5" id="disclaimer">This project is in no way affiliated with Cards Against Humanity. It is distributed under creative
     commons as that is the license the cards are published under. <b>Content may be offensive, please continue at your
         own risk</b>
     <button onclick="acceptDisclaimer();">Accept and hide disclaimer.</button>
-</p>
+</p></div>
 <div id="game" style="visibility: hidden"><div class="w3-row">
     <div class="w3-col m5"><p></p></div>
     <button class="m2 w3-col w3-btn" onclick="drawHand();">Draw Hand</button>
@@ -299,7 +299,7 @@
 
 <p><!-- Debbugging output --></p>
 
-<div style="margin:10px; visibility:hidden;"><textarea cols="70" id="debugmessage" rows="20"></textarea></div>
+<div style="margin:10px; /*visibility:hidden;*/"><textarea cols="70" id="debugmessage" rows="20"></textarea></div>
 
 <p>
     <script type="text/javascript">
