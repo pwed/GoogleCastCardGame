@@ -137,10 +137,17 @@ limitations under the License.
                     case 'input':
                         displayMessage(arg[1], event.senderId);
                         break;
+                    case 'blackcard':
+                        setBlackCard(arg[1], event.senderId);
+                        break;
                 }
             }
 
         };
+
+        function setBlackCard(cardText) {
+            document.getElementById('blackCard').innerHTML = cardText;
+        }
 
 
 

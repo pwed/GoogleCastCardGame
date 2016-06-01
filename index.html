@@ -182,6 +182,11 @@
         function getRandomWhiteCard() {
             return whiteCards[Math.floor(Math.random() * whiteCards.length)];
         }
+
+        function newBlackCard() {
+            sendMessage("blackcard=" + blackCards[Math.floor(Math.random() * blackCards.length)]);
+        }
+
         function showWhiteCard(id) {
             document.getElementById(id).innerHTML = getRandomWhiteCard();
         }
@@ -208,7 +213,7 @@
     </script>
 </head>
 <body class="w3-container">
-<div class="w3-row">
+<div class="w3-row-padding">
     <div class="w3-col m4"><p></p></div>
     <p class="w3-card-4 w3-col m5" id="disclaimer">This project is in no way affiliated with Cards Against Humanity. It
         is distributed under creative
@@ -219,9 +224,11 @@
     </p>
 </div>
 <div id="game" style="visibility: hidden">
-    <div class="w3-row">
-        <div class="w3-col m5"><p></p></div>
-        <button class="m2 w3-col w3-btn" onclick="drawHand();">Draw Hand</button>
+    <div class="w3-row-padding">
+        <div class="w3-col m3"><p></p></div>
+        <div class="m2 w3-col"><button class="w3-btn" onclick="drawHand();">Draw Hand</button></div>
+        <div class="w3-col m2"><p></p></div>
+        <div class="m2 w3-col"><button class="w3-btn" onclick="newBlackCard();">Next Black Card</button></div>
     </div>
     <div id="row1" class="w3-row-padding">
         <div class="w3-col m1"><p></p></div> <!-- this is here to center the other columns -->
